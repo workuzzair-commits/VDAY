@@ -3,18 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Valentine's Day!</title>
+    <title>Valentine's Day Interactive Card</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #fff5f5; color: #c50000; text-align: center; padding: 50px; }
-        h1 { font-size: 50px; }
-        p { font-size: 20px; }
-        .heart { color: red; font-size: 30px; }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .card {
+            background: pink;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .heart {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            background: url('https://example.com/heart.png') no-repeat;
+            background-size: cover;
+            animation: float 3s infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
-    <h1>Happy Valentine's Day!</h1>
-    <p class="heart">❤</p>
-    <p>Wishing you a day filled with love and happiness!</p>
-    <p>Send love to those who matter the most!</p>
+    <div class="card">
+        <h1>Litchi Will You Be My Valentine?</h1>
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+        <audio id="music" src="https://example.com/music.mp3" loop></audio>
+    </div>
+    <script>
+        const yesButton = document.getElementById('yes');
+        const noButton = document.getElementById('no');
+        const music = document.getElementById('music');
+
+        yesButton.onclick = function() {
+            music.play();
+            alert('Yay! Let\'s celebrate!');
+        };
+
+        noButton.onclick = function() {
+            music.pause();
+            alert('That\'s okay! Hope you have a great day!');
+        };
+    </script>
 </body>
 </html>
